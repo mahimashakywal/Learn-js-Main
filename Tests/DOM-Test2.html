@@ -1,0 +1,102 @@
+<!-- Adding boxes inside a box through button and showing the number of boxes inside -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            margin-top: 10%;
+            gap: 5%;
+        }
+
+        #outerBox {
+            width: 40vw;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3%;
+            gap: 2vh;
+        }
+
+        #add {
+            padding: 1vh;
+        }
+
+        .style {
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 97%;
+            height: 5vh;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="buttonBox">
+        <button onclick="addBox(),countOfBoxes()" id="add">ADD</button>
+        <p>BOX</p>
+        <p id="count">0</p>
+    </div>
+
+    <div id="outerBox">
+        <span id="span">NO CONTENT INSIDE</span>
+    </div>
+
+
+    <script>
+
+        function countOfBoxes() {
+            const outerBox = document.getElementById('outerBox');
+            const arrOfBoxes = outerBox.children;
+            const span = document.getElementById('span');
+            const countPara = document.getElementById('count');
+            if (arrOfBoxes.length === 1 && arrOfBoxes[0] === span) {
+                countPara.innerText = 0;
+                return false;
+            }
+            countPara.innerText = arrOfBoxes.length;
+        }
+
+        function addBox() {
+            const outerBox = document.getElementById('outerBox');
+            const arrOfBoxes = outerBox.children;
+            const span = document.getElementById('span');
+            if (arrOfBoxes.length === 1 && arrOfBoxes[0] === span) {
+                span.remove();
+            }
+            const innerBox = document.createElement('div');
+            const button = document.createElement('button');
+            button.innerText = 'REMOVE';
+            innerBox.setAttribute('class', 'style');
+            button.setAttribute('onclick', 'removeDiv(this),countOfBoxes()');
+            innerBox.append(button);
+            outerBox.append(innerBox);
+            }
+
+        function removeDiv(obj) {
+            obj.parentElement.remove();
+            const outerBox = document.getElementById('outerBox');
+            const arrOfBoxes = outerBox.children;
+            if (arrOfBoxes.length === 0) {
+                const span = document.createElement('span');
+                span.setAttribute('id', 'span');
+                span.innerText = 'NO CONTENT INSIDE';
+                outerBox.append(span);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

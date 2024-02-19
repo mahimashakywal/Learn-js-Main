@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10vh;
+        }
+
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+            width: 50vw;
+        }
+
+        td {
+            border: 2px solid black;
+        }
+
+        div {
+            height: 5vh;
+            width: 50vw;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 2%;
+        }
+
+        button {
+            height: 90%;
+            background-color: rgb(253, 224, 229);
+            border: 1px solid rgb(204, 106, 123);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button onclick="generateRow()">Generate Row</button>
+
+        <button onclick="deleteRow()">Remove Row</button>
+    </div>
+
+    <table cellpadding="7px" id="table">
+        <tr>
+            <td><input type="text" id="item1" ></td>
+
+            <td>QUANTITY1: 5</td>
+
+            <td>PRICE1: 20</td>
+
+            <td>TOTAL PRICE1: 100</td>
+        </tr>
+    </table>
+
+
+    <script>
+        let count = 2;
+        function generateRow() {
+            const table = document.getElementById('table');
+            const descriptions = ['item', 'qty', 'price', 'total price'];
+            const tr = document.createElement('tr');
+            for (let i = 0; i < descriptions.length; i++) {
+                const td = document.createElement('td');
+                td.innerText = `${descriptions[i]}${count}: `;
+                tr.append(td);
+            }
+            table.append(tr);
+            count++;
+        }
+
+        function deleteRow() {
+            const table = document.getElementById('table');
+            if (table.rows.length === 1) {
+                alert('CAN NOT DELETE THE LAST ROW');
+                count = 2;
+                return false;
+            }
+            table.lastElementChild.remove();
+            // console.log(table.rows.length);
+        }
+
+    </script>
+</body>
+
+</html>
