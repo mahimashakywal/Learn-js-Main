@@ -1,0 +1,41 @@
+<!-- 1. Modify the style of the paragraph text through button by javascript code. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #text {
+        font-size: 1rem;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    button {
+        padding: 1vh;
+        background-color: rgb(206, 202, 202);
+        border: none;
+        box-shadow: 3px 3px;
+    }
+</style>
+
+<body>
+    <p id="text">HELLO TO MY HOPE WORLD.</p>
+    <button onclick="changeStyle()">change style</button>
+</body>
+
+
+<script>
+    function changeStyle() {
+        const text = document.getElementById('text');
+        text.style.fontSize = '2rem';
+        text.style.fontFamily = 'cursive';
+        text.style.color = 'blue';
+    }
+</script>
+
+</html>

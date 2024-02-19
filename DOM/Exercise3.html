@@ -1,0 +1,44 @@
+<!-- 3. Write a JavaScript program to set paragraph background color. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+        #div{
+            text-align: center;
+       }
+        button{
+            width: 5vw;
+            align-self: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate dolores sunt nulla saepe.
+            Possimus dicta animi sunt nisi natus. Possimus dolorum,
+            consectetur ratione totam laborum accusantium repudiandae incidunt ducimus doloremque.
+        </p>
+
+    </div>
+    <button onclick="change()">change</button>
+
+    <script>
+        function change(){
+            const div = document.getElementById('div');
+            div.style = 'background-color:pink; color:red;';
+        }
+    </script>
+
+</body>
+
+</html>

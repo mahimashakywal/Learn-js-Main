@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <img
+        src="https://media.istockphoto.com/id/174814162/photo/tiger-cub-silhouette.jpg?s=2048x2048&w=is&k=20&c=aOaRZ8WfS_2FUSbf3U-LBvkKMYvjORbafiHVly_Z2U0="
+        data-index="1"
+        id="myImage"
+        style="width: 1000px; height: 500px"
+    />
+ 
+    <br />
+    <button type="button" onclick="changeImage()">Change Image</button>
+ 
+    <script>
+        const images = [
+            "https://media.istockphoto.com/id/174814162/photo/tiger-cub-silhouette.jpg?s=2048x2048&w=is&k=20&c=aOaRZ8WfS_2FUSbf3U-LBvkKMYvjORbafiHVly_Z2U0=",
+            "https://media.istockphoto.com/id/1203186308/photo/silhouette-of-a-cheetah.jpg?s=612x612&w=0&k=20&c=xBKT8-aUaUMKHpCCQcVsDx8W61gRR4T6J1kFEktoqfw=",
+            "https://media.istockphoto.com/id/1084018764/photo/tyrannosaurus-rex-in-the-jungle-this-is-a-3d-render-illustration.jpg?s=612x612&w=0&k=20&c=-b_CebIEt70FS8_Yd-A8gxuyswkBTKuZyj-C4apPSpg=",
+            "https://media.istockphoto.com/id/530493523/photo/silhouette-of-a-elephants-in-sunset.jpg?s=612x612&w=0&k=20&c=MtftDt5UFFID4zanYjuwRPOL8cV9x7chUHW8Rnaqm9M=",
+            "https://media.istockphoto.com/id/1483340815/photo/silhouette-of-mahout-man-sit-on-back-of-big-asian-elephant-and-stand-in-the-field-with.jpg?s=612x612&w=0&k=20&c=z75zl4gzgwAF4cM7Jhx5cxCbVA8FkK5hKZvUoLbpJXs="
+        ];
+ 
+        function changeImage() {
+            const imagesLen = images.length;
+            const img = document.getElementById('myImage');
+            let imageCurrentPos = +img.getAttribute('data-index');
+ 
+            const currentPos = imageCurrentPos - 1;
+           
+            const src = images[currentPos];
+            img.setAttribute('src', src);
+            img.setAttribute('data-index', imageCurrentPos === imagesLen ? 1 : ++imageCurrentPos);
+ 
+        }
+ 
+        //changeImage();
+    </script>
+</body>
+</html>

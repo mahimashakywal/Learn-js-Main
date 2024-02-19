@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+        padding: 3%;
+       
+       }
+     
+       
+    </style>
+</head>
+<body>
+ 
+    <input type="checkbox" onclick='selectAll(this)' value="Select All" style="display: block;" />
+ 
+    <input type="checkbox" onclick="printValue(this)"  value="1" id="first">
+    <label for="first"></label> 
+    <input type="checkbox" onclick="printValue(this)"  value="2" id="second">
+    <label for="second"></label> 
+    <input type="checkbox" onclick="printValue(this)"  value="3" id="third">
+    <label for="third"></label> 
+    <input type="checkbox" onclick="printValue(this)"  value="4" id="fourth">
+    <label for="fourth"></label> 
+    <input type="checkbox" onclick="printValue(this)"  value="5" id="fifth">
+    <label for="fifth"></label> 
+
+    <script>
+        function printValue(obj){
+            const value = obj.value;
+            const label = obj.nextElementSibling;
+            if(obj.checked){
+            label.innerText = value;
+            return false;
+            }
+            label.innerText = ''; 
+        }
+   
+        function selectAll(obj){    
+                for(let i=0; i<chkBox.length; i++){  
+                    if(chkBox[i].type == 'checkbox')  {
+                        chkBox[i].checked;  
+                        return false;
+                    }
+
+                }
+            };
+ 
+           
+    </script>
+</body>
+</html>

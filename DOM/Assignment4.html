@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           display: flex; 
+           flex-direction: column;
+           margin-top: 10%;
+           align-items: center;
+           gap: 2vh;
+        }
+        #center-div{
+            height: 200px;
+            width: 200px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        fieldset{
+            width: 15vw;
+            display: flex;
+            gap: 3%;
+        }
+    </style>
+</head>
+<body onload="creatingElements()">
+ <script>
+    function creatingElements(){
+
+        const div = document.createElement('div');
+        div.setAttribute('id','center-div');
+        div.innerHTML = 'MAHIMA';
+        document.body.append(div);    
+
+        const fieldsetBorderColor = document.createElement('fieldset');
+        document.body.append(fieldsetBorderColor);
+        const legendBorderColor = document.createElement('legend');
+        legendBorderColor.innerText = 'Border';
+        fieldsetBorderColor.append(legendBorderColor);
+
+        const dropDownList1 = document.createElement('select');
+        dropDownList1.setAttribute('id','borderColor');
+        fieldsetBorderColor.append(dropDownList1);
+        
+        const option11 = document.createElement('option');
+        option11.setAttribute('value', '');
+        option11.innerText = 'select';
+        dropDownList1.append(option11);
+
+        const option12 = document.createElement('option');
+        option12.setAttribute('value', 'blue');
+        option12.innerText = 'Blue';
+        dropDownList1.append(option12);
+
+        const option13 = document.createElement('option');
+        option13.setAttribute('value', 'pink');
+        option13.innerText = 'Pink';
+        dropDownList1.append(option13);
+
+        const option14 = document.createElement('option');
+        option14.setAttribute('value', 'red');
+        option14.innerText = 'Red';
+        dropDownList1.append(option14);
+
+        const option15 = document.createElement('option');
+        option15.setAttribute('value', 'yellow');
+        option15.innerText = 'Yellow';
+        dropDownList1.append(option15);
+
+        const option16 = document.createElement('option');
+        option16.setAttribute('value', 'green');
+        option16.innerText = 'Green';
+        dropDownList1.append(option16);
+
+        const button1 = document.createElement('button');
+        button1.innerText = 'Set Border';
+        button1.setAttribute('onclick','checkValue("borderColor")');
+        fieldsetBorderColor.append(button1);
+
+        const fieldsetBgColor = document.createElement('fieldset');
+        document.body.append(fieldsetBgColor);
+        const legendBgColor = document.createElement('legend');
+        legendBgColor.innerText = 'Bg Color';
+        fieldsetBgColor.append(legendBgColor);
+
+        const dropDownList2 = document.createElement('select');
+        dropDownList2.setAttribute('id','backgroundColor');
+        fieldsetBgColor.append(dropDownList2);
+        
+        const option21 = document.createElement('option');
+        option21.setAttribute('value', '');
+        option21.innerText = 'select';
+        dropDownList2.append(option21);
+
+        const option22 = document.createElement('option');
+        option22.setAttribute('value', 'blue');
+        option22.innerText = 'Blue';
+        dropDownList2.append(option22);
+
+        const option23 = document.createElement('option');
+        option23.setAttribute('value', 'pink');
+        option23.innerText = 'Pink';
+        dropDownList2.append(option23);
+
+        const option24 = document.createElement('option');
+        option24.setAttribute('value', 'red');
+        option24.innerText = 'Red';
+        dropDownList2.append(option24);
+
+        const option25 = document.createElement('option');
+        option25.setAttribute('value', 'yellow');
+        option25.innerText = 'Yellow';
+        dropDownList2.append(option25);
+
+        const option26 = document.createElement('option');
+        option26.setAttribute('value', 'green');
+        option26.innerText = 'Green';
+        dropDownList2.append(option26);
+
+        const button2 = document.createElement('button');
+        button2.innerText = 'Set Bg Color';
+        button2.setAttribute('onclick','checkValue("backgroundColor")');
+        fieldsetBgColor.append(button2);
+
+        const fieldsetTextColor = document.createElement('fieldset');
+        document.body.append(fieldsetTextColor);
+        const legendTextColor = document.createElement('legend');
+        legendTextColor.innerText = 'Text Color';
+        fieldsetTextColor.append(legendTextColor);
+
+        const dropDownList3 = document.createElement('select');
+        dropDownList3.setAttribute('id','color');
+        fieldsetTextColor.append(dropDownList3);
+        
+        const option31 = document.createElement('option');
+        option31.setAttribute('value', '');
+        option31.innerText = 'select';
+        dropDownList3.append(option31);
+
+        const option32 = document.createElement('option');
+        option32.setAttribute('value','blue');
+        option32.innerText = 'Blue';
+        dropDownList3.append(option32);
+
+        const option33 = document.createElement('option');
+        option33.setAttribute('value','pink');
+        option33.innerText = 'Pink';
+        dropDownList3.append(option33);
+
+        const option34 = document.createElement('option');
+        option34.setAttribute('value','red');
+        option34.innerText = 'Red';
+        dropDownList3.append(option34);
+
+        const option35 = document.createElement('option');
+        option35.setAttribute('value', 'yellow');
+        option35.innerText = 'Yellow';
+        dropDownList3.append(option35);
+
+        const option36 = document.createElement('option');
+        option36.setAttribute('value', 'green');
+        option36.innerText = 'Green';
+        dropDownList3.append(option36);
+
+        const button3 = document.createElement('button');
+        button3.innerText = 'Set Text Color';
+        button3.setAttribute('onclick','checkValue("color")');
+        fieldsetTextColor.append(button3);
+    }
+
+    function createDiv(){
+        const div = document.createElement('div');
+        div.setAttribute('id','center-div');
+    }
+    function checkValue(property, message = 'select an option'){
+        if(typeof property !== 'string') {
+                throw new Error('`Property parameter should be a string!`');
+            }
+
+            let propertyValue ='';
+            const propertyObj = document.getElementById(property);
+            propertyValue = propertyObj.value;
+            if ( propertyValue ==="") {
+                alert(message);
+                propertyObj.focus();
+                return false;
+            }
+            const divObj = document.getElementById('center-div');
+            divObj.style[property] = propertyValue;
+    };
+</script>
+</body>
+</html>

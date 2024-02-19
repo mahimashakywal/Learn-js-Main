@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+     body{
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         margin-top: 15%;
+         gap: 5vh;
+      }
+      #getText{
+        height: 30vh;
+        width: 15vw;
+        border: 2px solid black;
+      }
+      .buttons{
+         width: 15vw;
+
+      }
+      button{
+         height: 4vh;
+         width: 30%;
+         margin-left: 12%;
+      }
+   </style>
+</head>
+<body>
+   <div id= "getText" name= "getText">
+        
+   </div>
+
+   <div class="buttons">
+       <button onclick="setName()">SET</button>
+       <button onclick="getName()">GET</button>
+   </div>
+
+   <script>
+      function setName(){
+         document.getElementById('getText').innerHTML= 'MAHIMA';
+      }
+      function getName(){
+         var getText = document.getElementById('getText').value = 'alert';
+         alert(getText);
+      }
+   </script>
+</body>
+</html>
+
+

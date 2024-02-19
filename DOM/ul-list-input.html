@@ -1,0 +1,92 @@
+Adding the value of the input field in list through button. 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10%;
+            gap: 3vh;
+        }
+        div{
+            width: 30vw;
+            border: 1px solid black;
+            padding: 3vh;
+            display: flex;
+            gap: 15vw;
+        }
+        button{
+            float: right;
+            background-color: rgb(154, 201, 235);
+            border: none;
+            padding: 2%;
+            border-radius: 2px;   
+        }
+        ul{
+            width: 100%;
+        }
+        li{
+            display: flex;
+            width: 100%;
+            gap: 15vw;
+            margin-top: 3%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="" id="textBox" value="">
+        <button onclick="addList()">ADD</button>
+    </div>
+
+    <div>
+        <ul id="list">
+            <span id="span">NO CONTENT INSIDE.</span>
+        </ul>
+    </div>
+
+    <script>
+        function addList() {
+            const list = document.getElementById('list');
+            const textBox = document.getElementById('textBox');
+            const totalLines = list.children;
+            const span = document.getElementById('span');
+            const li = document.createElement('li');
+            const button = document.createElement('button');
+            button.innerText = 'REMOVE';
+            button.setAttribute('onclick', 'removeLi(this)');
+            if (textBox.value === '') {
+                alert('Please fill the input field.');
+                return false;
+            }else if(totalLines.length === 1 && totalLines[0] === span){
+                span.remove();
+            }
+            li.innerText = textBox.value;
+            li.append(button);
+            list.append(li);
+            textBox.value = '';
+        }
+
+        function removeLi(obj) {
+            obj.parentElement.remove();
+            const list = document.getElementById('list');
+            const totalLines = list.children;
+            if( totalLines.length === 0){
+                const span = document.createElement('span');
+                span.innerText = 'NO CONTENT INSIDE.';
+                span.setAttribute('id','span');
+                list.append(span);
+            }
+        }
+    </script>
+</body>
+
+</html>

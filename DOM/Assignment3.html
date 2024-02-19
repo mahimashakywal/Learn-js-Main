@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10%;
+            background-color: rgb(255, 255, 238);
+        }
+        div{
+            height: 200px;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+        }
+        fieldset{
+            width: 20vw;
+            display: flex;
+            gap: 10%;
+            margin: 1%;
+        }
+        button{
+            width: 10vw;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-div">
+        MAHIMA
+    </div>
+
+    <fieldset>
+        <legend>Border</legend>
+            <select name="" id="borderColor">
+                <option value=""></option>
+                <option value="Blue">Blue</option>
+                <option value="Pink">Pink</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+            </select>
+            <button onclick="checkTheValue('borderColor', 'select border color')"> Set Border</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>Background</legend>
+            <select name="" id="backgroundColor">
+                <option value=""></option>
+                <option value="Blue">Blue</option>
+                <option value="Pink">Pink</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+            </select>
+            <button onclick="checkTheValue('backgroundColor', 'select background color')"> Set Background</button>
+    </fieldset>
+    <fieldset>
+        <legend>Text Color</legend>
+            <select name="" id="color">
+                <option value=""></option>
+                <option value="Blue">Blue</option>
+                <option value="Pink">Pink</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+            </select>
+            <button onclick="checkTheValue('color', 'select text color')"> Set Text Color</button>
+    </fieldset>
+
+    <script>
+        function checkTheValue(property, message = 'select an option'){
+            if(typeof property !== 'string') {
+                    throw new Error('`Property parameter is required!`');
+                }
+ 
+                let propertyValue = '';
+                const propertyObj = document.getElementById(property);
+                propertyValue = propertyObj.value;
+             
+                if ( propertyValue === "" ) {
+                    alert(message);
+                    propertyObj.focus();
+                    return false;
+                }
+                const divObj = document.getElementById('main-div');
+                divObj.style[property] = propertyValue;
+            };
+ 
+ 
+        // function changeBorderColor() {
+        //         const borderColorObj = document.getElementById('borderColor');
+        //         const borderColor = borderColorObj.value;
+        //         if(borderColor === "") {
+        //             alert('Please select border color');
+        //             borderColorObj.focus();
+        //             return false;
+        //         }
+        //         const divObj = document.getElementById('main-div');
+        //         divObj.style.borderColor = borderColor;
+        //     };
+
+ 
+        // function changeBackgroundColor() {
+        //         const backgroundObj = document.getElementById('backgroundColor');
+        //         const backgroundColor = backgroundObj.value;
+        //         if(backgroundColor === "") {
+        //             alert('Please select background color');
+        //             backgroundColor.focus();
+        //             return false;
+        //         }
+        //         const divObj = document.getElementById('main-div');
+        //         divObj.style.backgroundColor = backgroundColor;
+        //     };
+
+ 
+        // function changeColor() {
+        //         const colorObj = document.getElementById('color');
+        //         const color = colorObj.value;
+        //         if(color === "") {
+        //             alert('Please select text color');
+        //             colorObj.focus();
+        //             return false;
+        //         }
+        //         const divObj = document.getElementById('main-div');
+        //         divObj.style.color = color;
+        //     };
+    </script>
+</body>
+</html>
