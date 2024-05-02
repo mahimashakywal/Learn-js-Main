@@ -41048,7 +41048,7 @@ const comments = [
     "email": "Emma@joanny.ca",
     "body": "perspiciatis quis doloremque\nveniam nisi eos velit sed\nid totam inventore voluptatem laborum et eveniet\naut aut aut maxime quia temporibus ut omnis"
   }
-]
+];
 
 // const userTodos =todos.filter(todo => todo.userId === 1 && !todo.completed);
 // console.log(userTodos);

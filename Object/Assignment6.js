@@ -1,4 +1,4 @@
-console.log('Write a JavaScript program to delete the rollno property from the following object. Also print the object before or after deleting the property.');
+// 1. Write a JavaScript program to delete the rollno property from the following object. Also print the object before or after deleting the property.
 const student1 = {
     name : "David Rayy",
     sclass : "VI",

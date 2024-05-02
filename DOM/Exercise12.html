@@ -1,0 +1,46 @@
+<!-- 12. Write a JavaScript program to highlight the bold words of the following paragraph, on mouse over a certain link. -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ 
+<body>
+ 
+    <p><a href="#" onMouseOver="highlightText()" onMouseOut="return_Text()">Paragraph will be highlighted</a></p>
+ 
+    <p> Lorem ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit. Omnis <strong>architecto</strong>
+        voluptas cum unde,
+        obcaecati <strong>numquam</strong> impedit temporibus commodi maxime in <strong>consequuntur</strong> autem
+        vitae veritatis
+        quo iusto <strong>blanditiis</strong> ratione, veniam placeat.</p>
+ 
+    <script>
+ 
+        var bItems;
+        window.onload = boldWords();
+ 
+        function boldWords() {
+            bItems = document.getElementsByTagName('strong');
+        }
+ 
+        function highlightText() {
+            for (let i = 0; i < bItems.length; i++) {
+                bItems[i].style.color = "red";
+                bItems[i].style.fontSize = "large";
+            }
+        }
+ 
+        function return_Text() {
+            for (var i = 0; i < bItems.length; i++) {
+                bItems[i].style.color = "black";
+            }
+        }
+    </script>
+ 
+</body>
+</html>

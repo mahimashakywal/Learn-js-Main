@@ -1,0 +1,53 @@
+<!-- changing the photo when clicking the button  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        button{
+            padding: 1vh;
+        }
+    </style>
+</head>
+<body>
+ 
+    <img
+        src="https://wallpapers.com/images/high/beautiful-flowers-pictures-1z4wk44o2a1dshai.webp"
+        data-index="1"
+        id="myImage"
+        style="width: 1000px; height: 500px"
+    />
+ 
+    <br />
+    <button type="button" onclick="changeImage()">Change Image</button>
+ 
+    <script>
+        const images = [
+           'https://wallpapers.com/images/high/beautiful-flowers-pictures-1z4wk44o2a1dshai.webp',
+           'https://wallpapers.com/images/high/cool-black-and-white-pictures-12cud9jr1x1kry4y.webp',
+           'https://wallpapers.com/images/high/aesthetic-pictures-ew7urkziumiyblrl.webp',
+           'https://wallpapers.com/images/high/aesthetic-pictures-tpnj3duos281aq1o.webp',
+           'https://wallpapers.com/images/high/aesthetic-pictures-k9mnkt66ti0omrvi.webp'
+        ];
+ 
+        function changeImage() {
+            const imagesLen = images.length;
+            const img = document.getElementById('myImage');
+            let imageCurrentPos = +img.getAttribute('data-index');
+ 
+            const currentPos = imageCurrentPos - 1;
+           
+            const src = images[currentPos];
+            img.setAttribute('src', src);
+            img.setAttribute('data-index', imageCurrentPos === imagesLen ? 1 : ++imageCurrentPos);
+ 
+        }
+ 
+        //changeImage();
+    </script>
+</body>
+</html>

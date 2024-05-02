@@ -21,7 +21,7 @@
         }
         console.log(checkDataType('Mahima'))
 
-        
+
         // 2. Write a JavaScript function to check whether a string is blank or not.
 
         function isEmpty(args) {
@@ -72,7 +72,7 @@
         };
         console.log(protect_email("mahima_shakyawal@example.com"));
 
-        
+
         // 7. Write a JavaScript function to parameterize a string.
 
         function string_parameterize(args) {
@@ -207,6 +207,17 @@
         console.log(text_truncate('We are doing JS string exercises.', 19))
         console.log(text_truncate('We are doing JS string exercises.', 15, '!!'))
 
+        // 17. Write a JavaScript function to chop a string into chunks of a given length.
+
+        function string_chop(str, size) {
+            if (str == null) return [];
+            str = String(str);
+            size = ~~size;
+            return size > 0 ? str.match(new RegExp('.{1,' + size + '}', 'g')) : [str];
+        }
+        console.log(string_chop('w3resource'));
+        console.log(string_chop('w3resource', 2));
+        console.log(string_chop('w3resource', 3));
 
         // 20. Write a JavaScript function that can pad (left, right) a string to get to a specific length.
 
@@ -293,7 +304,6 @@
         }
         console.log(remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the'));
 
-
         // 27. Write a JavaScript function to convert ASCII to Hexadecimal format.
 
         function ascii_to_hexa(args) {
@@ -307,6 +317,21 @@
         console.log(ascii_to_hexa('12'));
         console.log(ascii_to_hexa('100'));
 
+        // 29. Write a JavaScript function to find a word within a string.
+
+        function search_word(str, find) {
+            const temp = str.split(' ');
+            console.log(temp);
+            var count = 0;
+            for (let i = 0; i <= temp.length; i++) {
+                if (temp[i] === find) {
+                    count++;
+                }
+            }
+            return find + ' was found ' + count + ' Times';
+        }
+        console.log(search_word('The quick brown fox', 'fox'));
+        console.log(search_word('aa bb cc dd aa', 'aa'));
 
         // 30. Write a JavaScript function that checks whether a string ends with a specified suffix.
 
@@ -316,6 +341,93 @@
         }
         console.log(string_endsWith('JS PHP PYTHON', 'PYTHON'));
         console.log(string_endsWith('JS PHP PYTHON', ' '));
+
+        // 31. Write a JavaScript function to escape special characters(&, <, >, ', ") for use in HTML.
+
+        function escape_html(str) {
+            if ((str === null) || (str === ''))
+                return false;
+            else
+                str = str.toString();
+            const char = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return str.replace(/[&<>"']/g, function (m) {
+                return char[m];
+            });
+        }
+        console.log(escape_html('PHP & MySQL'));
+        console.log(escape_html('3 > 2'));
+
+        // 32. Write a JavaScript function to remove non - printable ASCII characters.
+
+        function remove_non_ascii(str) {
+
+            if ((str === null) || (str === ''))
+                return false;
+            else
+                str = str.toString();
+            return str.replace(/[^\x20-\x7E]/g, '');
+        }
+        console.log(remove_non_ascii('???????PHP-MySQL??????'));
+
+        // 33. Write a JavaScript function to remove non - word characters.
+
+        function remove_non_word(str) {
+            if ((str === null) || (str === ''))
+                return false;
+            else
+                str = str.toString();
+
+            const str1 = /[^\x20\x2D0-9A-Z\x5Fa-z\xC0-\xD6\xD8-\xF6\xF8-\xFF]/g;
+
+            return str.replace(str1, '');
+        }
+        console.log(remove_non_word('PHP ~!@#$%^&*()+`-={}[]|\\:";\'/?><., MySQL'));
+        // "PHP - MySQL"
+
+        // 34. Write a JavaScript function to convert a string to title case.
+
+        function sentenceCase(str) {
+            if ((str === null) || (str === ''))
+                return false;
+            else
+                str = str.toString();
+
+            return str.replace(/\w\S*/g, function (txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            });
+        }
+        console.log(sentenceCase('PHP exercises. python exercises.'))
+
+        // 35. Write a JavaScript function to remove HTML / XML tags from a string.
+
+        function strip_html_tags(str) {
+            if ((str === null) || (str === ''))
+                return false;
+            else
+                str = str.toString();
+            return str.replace(/<[^>]*>/g, '');
+        }
+
+        console.log(strip_html_tags('<p><strong><em>PHP Exercises</em></strong></p>'));
+
+        // 36. Write a JavaScript function to create a zero - filled value with an optional +, - sign.
+
+        function zeroFill(number, width, sign) {
+            const num = '' + Math.abs(number);
+            const zero = width - num.length;
+            const signs = number >= 0;
+            return (sign ? (sign ? '+' : '') : '-') +
+                Math.pow(10, Math.max(0, zero)).toString().substr(1) + num;
+        }
+
+        console.log(zeroFill(120, 5, '-'));
+        console.log(zeroFill(29, 4));
 
 
         // 37. Write a JavaScript function to test case -insensitive(except special Unicode characters) string comparison.
@@ -402,7 +514,6 @@
         "20th"
         "302nd"
 
-
         // 46. Write a JavaScript function to test whether a string starts with a specified string.
 
         function startsWith(input, str) {
@@ -418,6 +529,291 @@
             return index >= 0 && input.indexOf(str, index) > -1;
         }
         console.log(endsWith('JS string exercises', 'exercises'));
+
+        // 49. Write a JavaScript function to get a guid(an acronym for 'Globally Unique Identifier' ?) of the specified length, or 32 by default.
+
+        function guid(len) {
+            const obj = [],
+                chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+                charlen = chars.length,
+                length = len || 32;
+
+            for (let i = 0; i < length; i++) {
+                obj[i] = chars.charAt(Math.floor(Math.random() * charlen));
+            }
+
+            return obj.join('');
+        }
+
+        console.log(guid());
+        console.log(guid(15));
+
+        // 52. Write a JavaScript program to determine if a given word is exceeding word or not.
+
+        const testStr = (word) => {
+            if (typeof word !== 'string') {
+                return 'It must be string'
+            }
+
+            const upperChars = word
+                .toUpperCase()
+                .replace(/[^A-Z]/g, '')
+            const adjacentDiffList = []
+            for (let i = 0; i < upperChars.length - 1; i++) {
+                const { [i]: char,
+                    [i + 1]: adjacentChar
+                } = upperChars
+
+                if (char !== adjacentChar) {
+                    adjacentDiffList.push(
+                        Math.abs(char.charCodeAt() - adjacentChar.charCodeAt())
+                    )
+                }
+            }
+            for (let i = 0; i < adjacentDiffList.length - 1; i++) {
+                const { [i]: charDiff,
+                    [i + 1]: secondCharDiff
+                } = adjacentDiffList
+
+                if (charDiff > secondCharDiff) {
+                    return false
+                }
+            }
+            return true
+        }
+        console.log(testStr('acgl'));
+        console.log(testStr('aebc'));
+
+        // 53. Write a JavaScript function to check a given string is in Flat case or not.
+
+        const test = (text) => {
+            if (typeof text !== 'string') {
+                return 'It must be a string.'
+            }
+            const pattern = /^[a-z]*$/
+            return pattern.test(text)
+        }
+
+        console.log(test('j'));
+        console.log(test('java exercises'));
+        console.log(test('JavaScriptExercises'));
+        console.log(test('javascriptexercises'));
+        console.log(test(12356));
+
+
+        // 54. Write a JavaScript function to check a given string is in Kebab case or not.
+
+        const test1 = (text) => {
+            if (typeof text !== 'string') {
+                return 'It must be a string.'
+            }
+            const str = /(\w+)-(\w)([\w-]*)/
+            return str.test(text) && !text.includes(' ')
+        }
+        console.log(test1('j'));
+        console.log(test1('java exercises'));
+        console.log(test1('JavaScriptExercises'));
+        console.log(test1('javascriptexercises'));
+        console.log(test1(12356));
+
+        // 55. Write a JavaScript function to check whether a string is a Pangram or not.
+
+        const checkStr = (string) => {
+            if (typeof string !== 'string') {
+                return 'It must be a string.'
+            }
+            const result = new Set()
+            for (const ch of string.toUpperCase()) {
+                if (/[A-Z]/.test(ch)) {
+                    result.add(ch)
+                }
+            }
+            return result.size === 26
+        }
+        console.log(checkStr("The quick brown fox jumps over the lazy dog"))
+        console.log(checkStr("Waltz, bad nymph, for quick jigs vex."))
+        console.log(checkStr("The five boxing wizards jump quickly."))
+        console.log(checkStr("The boxing wizards jump quickly."))
+        console.log(checkStr(12356))
+
+        // 56. Write a JavaScript function to check whether a string is in Pascal case or not.
+
+        const checkPascal = (word) => {
+            if (typeof word !== 'string') {
+                return 'It must be a string.'
+            }
+            const pattern = /^[A-Z][A-Za-z]*$/
+            return pattern.test(word)
+        }
+        console.log(checkPascal("XmlStream"))
+        console.log(checkPascal("IOStream"))
+        console.log(checkPascal("javascript"))
+        console.log(checkPascal(12356))
+
+        // 57. Write a JavaScript function that receives a string and determines whether or not it can be rearranged to become a palindrome.
+
+        const chkStr = (word) => {
+            if (word.length === 0) {
+                return 'String should not be empty!'
+            }
+            if (typeof word !== 'string') {
+                return 'It must be a string.'
+            }
+            const char_ctr = [...word].reduce((obj, ele) => {
+                obj[ele] = obj[ele] ? obj[ele] + 1 : 1
+                return obj
+            }, {})
+            return Object.values(char_ctr).filter(count => count % 2 !== 0).length <= 1
+        }
+        console.log(chkStr("maamd"))
+        console.log(chkStr("civic"))
+        console.log(chkStr("IO"))
+        console.log(chkStr(12321))
+
+        // 58. Write a JavaScript program to find the most frequent character in a given string.
+
+        const findChar = (str) => {
+            if (str.length === 0) {
+                return 'String should not be empty!'
+            }
+            if (typeof str !== 'string') {
+                return 'It must be a string.'
+            }
+            const occurrence_Map = new Map()
+
+            for (const char of str) {
+                occurrence_Map.set(char, occurrence_Map.get(char) + 1 || 1)
+            }
+            let max_char = { char: '', occur: -Infinity }
+
+            for (const [char, occur] of occurrence_Map) {
+                if (occur > max_char.occur) {
+                    max_char = { char, occur }
+                }
+            }
+
+            return max_char.char
+        }
+        console.log(findChar("Madam"))
+        console.log(findChar("civic"))
+        console.log(findChar("HellloL223LLL"))
+        console.log(findChar(12321))
+
+        // 59. Write a JavaScript program to find the most frequent word in a given string.
+
+        const findChar1 = (text) => {
+            if (text.length === 0) {
+                return 'String should not be empty!'
+            }
+            if (typeof text !== 'string') {
+                return 'It must be a string.'
+            }
+            const data = text.split(' ')
+            if (data.length < 2) {
+                return data[0]
+            }
+            const words = text.split(' ')
+            if (words.length < 2) {
+                return words[0]
+            }
+            const temp = {}
+            words.forEach(word => {
+                temp[word.toLocaleLowerCase()] = temp[word.toLocaleLowerCase()] + 1 || 1
+            })
+            const max = Object.keys(temp).reduce((n, word) => {
+                if (temp[word] > n.count) {
+                    return { word, count: temp[word] }
+                }
+                else {
+                    return n
+                }
+            }, { word: '', count: 0 })
+            return max.word
+        }
+
+        console.log(findChar1("The quick brown fox jumps over the lazy dog"));
+        console.log(findChar1("Python is a high-level, general-purpose programming language."));
+        console.log(findChar1(" It was the same man, she was sure of it. It's always the same, Chauncey."));
+        console.log(findChar1(12321));
+
+        // 60. Write a JavaScript function to reverse words in a given string.
+
+        function revWord(text) {
+            if (text.length === 0) {
+                return 'String should not be empty!'
+            }
+            if (typeof text !== 'string') {
+                return 'It must be a string.'
+            }
+            let words = [];
+            words = text.match(/\S+/g);
+            let reverse_word = "";
+            for (var i = 0; i < words.length; i++) {
+                reverse_word += words[i].split('').reverse().join('') + " ";
+            }
+            return reverse_word
+        }
+        console.log(revWord("abc"));
+        console.log(revWord("JavaScript Exercises"));
+        console.log(revWord(1234));
+
+        // 61. Write a JavaScript function to find the length of the longest subsequence present between two sequences.
+
+        // ("abcda", "abcdef") -> 4
+        // ("ABCD", "ACBAD") -> 3
+        // ("pqr", "pqr") -> 3
+        // ("pqr", "abc") -> 0
+
+
+        // 62. Write a JavaScript function to get the length of the longest valid parentheses(well - formed) from a given string containing just the characters '[' and ']'.
+
+        const longest_Valid_Parentheses = (text) => {
+            if (typeof text !== 'string') {
+                return 'It must be string'
+            }
+            const n = text.length
+            const stack = [];
+            const result = new Array(n).fill(-Infinity)
+            for (let i = 0; i < n; i++) {
+                const bracket = text[i]
+                if (bracket === ']' && text[stack[stack.length - 1]] === '[') {
+                    result[i] = 1
+                    result[stack[stack.length - 1]] = 1
+                    stack.pop()
+                }
+                else {
+                    stack.push(i)
+                }
+            }
+            for (let i = 1; i < n; i++) {
+                result[i] = Math.max(result[i], result[i] + result[i - 1])
+            }
+            result.push(0)
+            return Math.max(...result)
+        }
+        console.log(longest_Valid_Parentheses("[[]"))
+        console.log(longest_Valid_Parentheses("][][]]"))
+        console.log(longest_Valid_Parentheses(""))
+
+
+        // 63. Write a JavaScript function to find the length of the longest palindromic subsequence in a given string.
+
+        // ("aaaba") -> 4
+        // ("maadaem") -> 5
+        // ("zkksk") -> 3
+        // ("ab") -> 1
+        // ("") -> ""
+
+
+        // 64. Write a JavaScript function that takes a positive integer and reverses the binary representation of that integer.Finally return the decimal version of the binary string.
+
+        function checkStr1(n) {
+            return parseInt(n.toString(2).split('').reverse().join(''), 2);
+        }
+
+        console.log(checkStr1(100));
+        console.log(checkStr1(1134));
+
     </script>
 </body>
 

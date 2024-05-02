@@ -1,4 +1,6 @@
-    const user= {id : 1, name : "mahima ", city :'udaipur'};
+// converting the object into an two-dimentional array.
+
+ const user= {id : 1, name : "mahima ", city :'udaipur'};
 
      let arr = Object.keys(user);
      const results =[];

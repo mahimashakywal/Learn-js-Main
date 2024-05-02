@@ -1,0 +1,45 @@
+<!-- 9. Write a JavaScript program to count and display dropdown list items in an alert window. -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 3%;
+        }
+ 
+        input {
+            margin-top: 2%;
+        }
+    </style>
+</head>
+ 
+<body>
+        <h2>Select your favorite Color :</h2>
+        <div>
+            <select id="mySelect">
+                <option>Red</option>
+                <option>Green</option>
+                <option>Blue</option>
+                <option>White</option>
+            </select>
+            <button onclick="getOptions()">Get Values</button>
+        </div>
+ 
+    <script>
+        function getOptions() {
+            const mySelect = document.getElementById('mySelect');
+            const values = mySelect.children;
+            alert(`No. Of Items : ${values.length}\n ${mySelect.innerText} `);
+        }
+    </script>
+</body>
+ 
+</html>

@@ -1,4 +1,4 @@
-console.log('Write a JavaScript program to list the properties of a JavaScript object.');
+// 1. Write a JavaScript program to list the properties of a JavaScript object.
 const student = {
     name : "David Rayy",
     sclass : "VI",

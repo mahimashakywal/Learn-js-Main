@@ -1,3 +1,5 @@
+// methods of Object
+
 const name= 'mahima shakywal';
 console.log(name);
 

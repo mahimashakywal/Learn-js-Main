@@ -1,24 +1,25 @@
-console.log('que :   1. Create an object called "mexico" with the following properties:' ,
-'- id -> 24',
-'- name -> "Mexico" ' ,
-'- capital -> "Mexico City"',
-'- neighbours -> ["USA", "Guatemala", "Belize"]',
+// que :   1. Create an object called "mexico" with the following properties:
+// id -> 24
+// name -> "Mexico"
+// capital -> "Mexico City"
+// neighbours -> ["USA", "Guatemala", "Belize"]
 
-'2. Print out "mexico" to the terminal',
-
-'3. Change "id" to be 25',
-
-'4. Add "Honduras" to the list of neighbours to "mexico"',
-'5. Print out "mexico" to the terminal again',
-'ans:')
 const mexico = {
     id : 24,
     name1 : "Mexico",
     capital : "Mexico City",
     neighbours : ["USA", "Guatemala", "Belize"]
 }
+
+//  1. Print out "mexico" to the terminal
 console.log(mexico);
+
+// 2. Change "id" to be 25
 mexico.id=25;
-const{ neighbours} = mexico;
+
+// 3. Add "Honduras" to the list of neighbours to "mexico"
+const{neighbours} = mexico;
 neighbours.push("Honduras");
+
+// 4. Print out "mexico" to the terminal again'
 console.log(mexico);

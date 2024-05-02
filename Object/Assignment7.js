@@ -1,4 +1,4 @@
-console.log('Write a JavaScript program to get the length of a JavaScript object.');
+// Write a JavaScript program to get the length of a JavaScript object.
 const student2 = {
     name : "David Rayy",
     sclass : "VI",
